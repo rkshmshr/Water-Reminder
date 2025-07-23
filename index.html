@@ -1,0 +1,17 @@
+<p class="editor-paragraph">&lt;!DOCTYPE html&gt;<br>&lt;html lang="en"&gt;<br>&lt;head&gt;<br>&lt;meta charset="UTF-8" /&gt;<br>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;<br>&lt;title&gt;Water Reminder&lt;/title&gt;<br>&lt;style&gt;<br>body {<br>font-family: Arial, sans-serif;<br>text-align: center;<br>padding: 50px;<br>background: #e0f7fa;<br>}<br>h1 {<br>color: #00796b;<br>}<br>button {<br>padding: 15px 25px;<br>font-size: 18px;<br>background: #00796b;<br>color: white;<br>border: none;<br>border-radius: 8px;<br>cursor: pointer;<br>}<br>button:hover {<br>background: #004d40;<br>}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;</p><p class="editor-paragraph">&lt;h1&gt;💧 Drink Water Reminder&lt;/h1&gt;<br>&lt;p&gt;Click the button below to start getting water reminders every 30 minutes.&lt;/p&gt;<br>&lt;button onclick="startReminders()"&gt;Start Reminders&lt;/button&gt;</p><p class="editor-paragraph">&lt;script&gt;<br>function startReminders() {<br>if (!("Notification" in window)) {<br>alert("This browser does not support desktop notification");<br>return;<br>}</p><pre class="code-block"><code>  Notification.requestPermission().then(function (permission) {
+    if (permission === "granted") {
+      notifyUser(); // Immediate first notification
+      setInterval(notifyUser, 30 * 60 * 1000); // 30 minutes
+    } else {
+      alert("Notification permission denied!");
+    }
+  });
+}
+
+function notifyUser() {
+  new Notification("🚰 Time to drink water!", {
+    body: "Stay hydrated and healthy! 💦",
+    icon: "https://cdn-icons-png.flaticon.com/512/2913/2913464.png"
+  });
+}
+</code></pre><p class="editor-paragraph">&lt;/script&gt;</p><p class="editor-paragraph">&lt;/body&gt;<br>&lt;/html&gt;</p>
