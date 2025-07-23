@@ -2,68 +2,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Water Reminder</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background: #e0f7fa;
-        }
-
-        h1 {
-            color: #00796b;
-        }
-
-        button {
-            padding: 15px 25px;
-            font-size: 18px;
-            background: #00796b;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #004d40;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Water Reminder Buddy</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="container">
+        <img src="assets/lotus.png" alt="Water Lotus" class="logo" />
+        <h1>Your Water Reminder<br>Buddy :)</h1>
+        <p>Click The Button Below To Start Getting<br>Water Reminders Every 30 Minutes.</p>
+        <button onclick="startReminders()">Start Reminders</button>
+        <footer>
+            Made With Love<br>
+            <a href="#">@RKSH DESIGN STUDIO</a>
+        </footer>
+    </div>
 
-    <h1>💧 Drink Water Reminder</h1>
-    <p>Click the button below to start getting water reminders every 30 minutes.</p>
-    <button onclick="startReminders()">Start Reminders</button>
-
-    <script>
-        function startReminders() {
-            if (!("Notification" in window)) {
-                alert("This browser does not support desktop notification");
-                return;
-            }
-
-            Notification.requestPermission().then(function (permission) {
-                if (permission === "granted") {
-                    notifyUser(); // Immediate first notification
-                    setInterval(notifyUser, 30 * 60 * 1000); // 30 minutes
-                } else {
-                    alert("Notification permission denied!");
-                }
-            });
-        }
-
-        function notifyUser() {
-            new Notification("🚰 Time to drink water!", {
-                body: "Stay hydrated and healthy! 💦",
-                icon: "https://cdn-icons-png.flaticon.com/512/2913/2913464.png"
-            });
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
